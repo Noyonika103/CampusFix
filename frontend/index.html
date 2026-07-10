@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusFix</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>CampusFix - Complaint Management System</h1>
+
+    <section class="dashboard">
+      <h2>Dashboard</h2>
+      <div class="stats">
+        <div class="card">
+          <h3>Total</h3>
+          <p id="totalCount">0</p>
+        </div>
+        <div class="card">
+          <h3>Open</h3>
+          <p id="openCount">0</p>
+        </div>
+        <div class="card">
+          <h3>In Progress</h3>
+          <p id="inProgressCount">0</p>
+        </div>
+        <div class="card">
+          <h3>Resolved</h3>
+          <p id="resolvedCount">0</p>
+        </div>
+        <div class="card">
+          <h3>High Priority</h3>
+          <p id="highPriorityCount">0</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>Raise a Complaint</h2>
+      <form id="ticketForm">
+        <input type="text" id="title" placeholder="Title" required />
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="text" id="category" placeholder="Category (IT, Cleaning, Electrical)" required />
+        <input type="text" id="location" placeholder="Location" required />
+
+        <select id="priority" required>
+          <option value="">Select Priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <input type="text" id="requester_name" placeholder="Requester Name" required />
+        <button type="submit">Create Ticket</button>
+      </form>
+    </section>
+
+    <section class="tickets-section">
+      <h2>All Tickets</h2>
+
+      <div class="filters">
+        <select id="filterStatus">
+          <option value="">All Status</option>
+          <option value="open">Open</option>
+          <option value="in_progress">In Progress</option>
+          <option value="resolved">Resolved</option>
+        </select>
+
+        <select id="filterPriority">
+          <option value="">All Priority</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <input type="text" id="filterCategory" placeholder="Filter by category" />
+        <button id="applyFilters">Apply Filters</button>
+        <button id="clearFilters">Clear Filters</button>
+      </div>
+
+      <div id="ticketList" class="ticket-list"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
